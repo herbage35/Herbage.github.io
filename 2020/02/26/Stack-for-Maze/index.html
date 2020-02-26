@@ -14,15 +14,15 @@
 <meta property="og:site_name" content="Herbage&#39;s Blog">
 <meta property="og:description" content="利用栈实现简单的迷宫寻路问题问题描述：给出一个迷宫，其开始点永远在左上角，出点永远在右下角，如图1所示   要求寻找一条通路    &#x3D;&#x3D;思路&#x3D;&#x3D;   将给出的迷宫用一个二维数组进行记录，其中1表示有障碍，0表示没有障碍。并创建一个栈，每找到一个可通的点，都将其坐标入栈，并将其值也置为1，表示此坐标以后不再考虑(用灰色点表示经过的点)，探寻过程，遵循“→↓←↑”的顺序。   如下图所示，当路径寻找">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze4.jpg">
 <meta property="article:published_time" content="2020-02-25T16:14:51.787Z">
-<meta property="article:modified_time" content="2020-02-26T02:45:06.813Z">
+<meta property="article:modified_time" content="2020-02-26T02:49:48.141Z">
 <meta property="article:author" content="Herbage">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze1.png">
   
     <link rel="alternate" href="/atom.xml" title="Herbage&#39;s Blog" type="application/atom+xml">
   
@@ -98,7 +98,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="利用栈实现简单的迷宫寻路问题"><a href="#利用栈实现简单的迷宫寻路问题" class="headerlink" title=" 利用栈实现简单的迷宫寻路问题"></a><center> 利用栈实现简单的迷宫寻路问题</center></h1><p>问题描述：给出一个迷宫，其开始点永远在左上角，出点永远在右下角，如图1所示 </p>
-<p><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze1.png" alt="Maze1.png"></p>
+<p><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze1.png" alt="Maze1.png"></p>
 <p>要求寻找一条通路</p>
 <hr>
 <hr>
@@ -106,10 +106,10 @@
 <p>==思路==</p>
 <p>  将给出的迷宫用一个二维数组进行记录，其中1表示有障碍，0表示没有障碍。并创建一个栈，每找到一个可通的点，都将其坐标入栈，并将其值也置为1，表示此坐标以后不再考虑(用灰色点表示经过的点)，探寻过程，遵循“→↓←↑”的顺序。</p>
 <p>  如下图所示，当路径寻找到（4，9）这个坐标时，它的四周都是1，表示进入了死胡同如下图2所示。</p>
-<center><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze2.png" style="zoom:50%;" /></center>
+<center><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze2.png" style="zoom:50%;" /></center>
 
 <p>  于是需要将四周全是1的坐标pop掉，在图中用蓝色△表示被排除的点。见下图3所示,排除了（4,9）和（4,8）两个点，目前的坐标跑到了（3,8）处。</p>
-<center><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze3.png" style="zoom:50%;" /></center>
+<center><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/dc0443204c417be300ed36154f2dccb1b30952e7/2020/02/26/Stack-for-Maze/Maze3.png" style="zoom:50%;" /></center>
 
 <p>  所以，最终改迷宫的路线即是这样的：</p>
 <center><img src="https://raw.githubusercontent.com/herbage35/herbage35.github.io/931a7c952081627c73eee023cf395e477cd60bd8/2020/02/26/Stack-for-Maze/Maze4.jpg" style="zoom:50%;" /></center>
